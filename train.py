@@ -191,12 +191,12 @@ def training(
             render_loss = l1_loss(image, gt_image)
             loss["render"] = render_loss
             loss["total"] = loss["total"] + loss["render"]
-            print(f" L1 loss at iter {iteration}: {loss['render'].item()}")
+            # print(f" L1 loss at iter {iteration}: {loss['render'].item()}") NO PRINT
             if opt.lambda_dssim > 0:
                 loss_dssim = 1.0 - ssim(image, gt_image)
                 loss["dssim"] = loss_dssim
                 loss["total"] = loss["total"] + opt.lambda_dssim * loss_dssim
-                print(f" DSSIM loss at iter {iteration}: {loss['dssim'].item()}")
+                # print(f" DSSIM loss at iter {iteration}: {loss['dssim'].item()}") NO PRINT
             
             #GEOMETRIC REGULARIZATION LOSS
             # if (iteration > deform_params.geom_loss_from_iter) and (deform_params.lambda_geo > 0) and (iteration % deform_params.geom_loss_interval == 0):
@@ -218,7 +218,7 @@ def training(
                                                                 l1_time_planes_weight = deform_params.l1_time_planes, 
                                                                 plane_tv_weight = deform_params.plane_tv_weight)
                 loss["total"] = loss["total"] + loss["Additive"]
-                print(f"Additive loss at iter {iteration}: {loss['Additive'].item()}")
+                # print(f"Additive loss at iter {iteration}: {loss['Additive'].item()}") NO PRINT
 
             else:
                 # 3D TV loss
@@ -240,36 +240,37 @@ def training(
                     loss_tv = tv_3d_loss(vol_pred, reduction="mean")
                     loss["tv"] = loss_tv
                     loss["total"] = loss["total"] + opt.lambda_tv * loss_tv
-                    print(f" TV loss at iter {iteration}: {loss['tv'].item()}")
+                    # print(f" TV loss at iter {iteration}: {loss['tv'].item()}") NO PRINT
 
 
         loss["total"] = loss["total"] / len(batch_views)
         loss["total"].backward()
 
-        if iteration % 100 == 0 or iteration == 5001:
+        # NO CHECKPOINT RENDERS!
+        # if iteration % 100 == 0 or iteration == 5001:
 
-            pred_np = image[0].detach().cpu().numpy()
-            gt_np = gt_image[0].detach().cpu().numpy()
+        #     pred_np = image[0].detach().cpu().numpy()
+        #     gt_np = gt_image[0].detach().cpu().numpy()
 
-            # If single-channel, squeeze; if multi-channel, you can select channel 0
-            if pred_np.ndim == 3 and pred_np.shape[0] == 1:
-                pred_np = pred_np[0]
-                gt_np = gt_np[0]
+        #     # If single-channel, squeeze; if multi-channel, you can select channel 0
+        #     if pred_np.ndim == 3 and pred_np.shape[0] == 1:
+        #         pred_np = pred_np[0]
+        #         gt_np = gt_np[0]
 
-            fig, axes = plt.subplots(1, 2, figsize=(10, 4))
-            im0 = axes[0].imshow(gt_np, cmap='gray')
-            axes[0].set_title(f"GT (iter {iteration}, time {viewpoint_cam.timepoint})")
-            axes[0].axis('off')
-            fig.colorbar(im0, ax=axes[0], fraction=0.046, pad=0.04)
+        #     fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+        #     im0 = axes[0].imshow(gt_np, cmap='gray')
+        #     axes[0].set_title(f"GT (iter {iteration}, time {viewpoint_cam.timepoint})")
+        #     axes[0].axis('off')
+        #     fig.colorbar(im0, ax=axes[0], fraction=0.046, pad=0.04)
 
-            im1 = axes[1].imshow(pred_np, cmap='gray')
-            axes[1].set_title(f"Predicted, time {viewpoint_cam.timepoint}")
-            axes[1].axis('off')
-            fig.colorbar(im1, ax=axes[1], fraction=0.046, pad=0.04)
+        #     im1 = axes[1].imshow(pred_np, cmap='gray')
+        #     axes[1].set_title(f"Predicted, time {viewpoint_cam.timepoint}")
+        #     axes[1].axis('off')
+        #     fig.colorbar(im1, ax=axes[1], fraction=0.046, pad=0.04)
 
-            fig.tight_layout()
-            plt.savefig(os.path.join(checkpoint_render_folder, f"proj_gt_pred_iter_{iteration}.png"))
-            plt.close()
+        #     fig.tight_layout()
+        #     plt.savefig(os.path.join(checkpoint_render_folder, f"proj_gt_pred_iter_{iteration}.png"))
+        #     plt.close()
 
         iter_end.record()
         torch.cuda.synchronize()
