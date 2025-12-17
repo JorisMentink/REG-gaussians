@@ -144,6 +144,36 @@
       color:var(--muted);
       text-align:center;
     }
+  .results-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:24px;
+    margin-top:20px;
+  }
+  
+  .result-card{
+    border:1px solid var(--border);
+    padding:16px;
+  }
+  
+  .result-card h3{
+    margin:0 0 8px;
+    font-size:18px;
+    font-weight:600;
+  }
+  
+  .result-card p{
+    font-size:15px;
+    margin:0;
+  }
+  
+  /* Stack columns on small screens */
+  @media (max-width: 900px){
+    .results-grid{
+      grid-template-columns: 1fr;
+    }
+  }
+      
   </style>
 </head>
 
@@ -183,6 +213,11 @@
 
     <hr>
 
+    <!-- Abstract -->
+    <section>
+      <h2>Abstract</h2>
+    </section>
+    
     <!-- Research question & pipeline -->
     <section>
       <h2>Model Architecture</h2>
@@ -196,16 +231,44 @@
           rendering and regularization.
         </figcaption>
       </figure>
-
-      <p>
-        We present the REG-Gaussians framework. The standard 4DGS approach from R2 gaussian is attached to spatiotemporal encoder HexPlane.
-      </p>
     </section>
 
-    <!-- Other sections -->
+
     <section>
-      <h2>Abstract</h2>
-    </section>
+    <h2>Results</h2>
+  
+    <div class="results-grid">
+  
+      <div class="result-card">
+        <h3>General results</h3>
+        <p>
+          Placeholder for overall reconstruction quality across all patients
+          and regularization settings. This section can summarize average PSNR,
+          SSIM, and qualitative observations.
+        </p>
+      </div>
+  
+      <div class="result-card">
+        <h3>Low-iteration results</h3>
+        <p>
+          Placeholder for performance at early training stages, highlighting
+          convergence behavior and reconstruction quality at reduced iteration
+          counts.
+        </p>
+      </div>
+  
+      <div class="result-card">
+        <h3>Super sparse-view reconstruction</h3>
+        <p>
+          Placeholder for extreme sparse-view scenarios, demonstrating robustness
+          of the proposed method under severely limited projection data.
+        </p>
+      </div>
+  
+    </div>
+</section>
+
+
     
     <footer>
       © <span id="year"></span> REG-Gaussians
