@@ -127,15 +127,53 @@
       margin-bottom:48px;
     }
 
-    h2{
+    /* Centered section titles */
+    .section-title{
       font-size:22px;
-      margin-bottom:12px;
+      margin-bottom:16px;
       font-weight:600;
+      text-align:center;
     }
 
     p{
-      max-width:75ch;
       margin:0 0 12px;
+    }
+
+    /* ---------- ABSTRACT ---------- */
+
+    .abstract{
+      max-width:75ch;
+      margin:0 auto;
+      text-align:justify;
+      text-justify:inter-word;
+      hyphens:auto;
+    }
+
+    /* ---------- RESULTS ---------- */
+
+    .results-columns{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:32px;
+      margin-top:24px;
+    }
+
+    .results-columns h3{
+      margin-top:0;
+      margin-bottom:12px;
+      font-size:18px;
+      font-weight:600;
+      text-align:center;
+    }
+
+    .results-columns p{
+      font-size:15px;
+    }
+
+    @media (max-width: 900px){
+      .results-columns{
+        grid-template-columns: 1fr;
+      }
     }
 
     footer{
@@ -144,59 +182,6 @@
       color:var(--muted);
       text-align:center;
     }
-  .results-grid{
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap:24px;
-    margin-top:20px;
-  }
-  
-  .result-card{
-    border:1px solid var(--border);
-    padding:16px;
-  }
-  
-  .result-card h3{
-    margin:0 0 8px;
-    font-size:18px;
-    font-weight:600;
-  }
-  
-  .result-card p{
-    font-size:15px;
-    margin:0;
-  }
-  
-  /* Stack columns on small screens */
-  @media (max-width: 900px){
-    .results-grid{
-      grid-template-columns: 1fr;
-    }
-  }
-  .results-columns{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:32px;
-  margin-top:24px;
-}
-
-.results-columns h3{
-  margin-top:0;
-  font-size:18px;
-  font-weight:600;
-}
-
-.results-columns p{
-  font-size:15px;
-}
-
-/* Stack columns on small screens */
-@media (max-width: 900px){
-  .results-columns{
-    grid-template-columns: 1fr;
-  }
-}
- 
   </style>
 </head>
 
@@ -237,16 +222,18 @@
     <hr>
 
     <!-- Abstract -->
-<section>
-  <h2>Abstract</h2>
-  <p>
-Iterative reconstruction algorithms have emerged as effective alternatives to conventional CBCT reconstruction methods, offering improved stability and image quality, even in sparse-view settings. This makes them well suited for radiation dose reduction in 4D-CBCT. Gaussian splatting has recently shown strong potential in this context, achieving higher reconstruction quality and training efficiency than neural radiance field-based approaches. This report presents REG-Gaussians, a 4D Gaussian splatting framework that extends prior 3DGS-based CBCT reconstruction and existing 4DGS methods. Three additional regularization strategies are investigated: spatiotemporal encoder grid smoothing, Gaussian geometric regularization, and motion coherence. Experimental results demonstrate that 4DGS can robustly reconstruct 4D CBCT volumes at low iteration counts and under extreme sparse-view conditions. Grid smoothing and motion coherence consistently improve reconstruction quality over the base model and, in some cases, state-of-the-art methods, while geometric regularization is found to be overly restrictive under the evaluated settings.
-  </p>
-</section>
-    
-    <!-- Research question & pipeline -->
     <section>
-      <h2>Model Architecture</h2>
+      <h2 class="section-title">Abstract</h2>
+      <div class="abstract">
+        <p>
+          Iterative reconstruction algorithms have emerged as effective alternatives to conventional CBCT reconstruction methods, offering improved stability and image quality, even in sparse-view settings. This makes them well suited for radiation dose reduction in 4D-CBCT. Gaussian splatting has recently shown strong potential in this context, achieving higher reconstruction quality and training efficiency than neural radiance field-based approaches. This report presents REG-Gaussians, a 4D Gaussian splatting framework that extends prior 3DGS-based CBCT reconstruction and existing 4DGS methods. Three additional regularization strategies are investigated: spatiotemporal encoder grid smoothing, Gaussian geometric regularization, and motion coherence. Experimental results demonstrate that 4DGS can robustly reconstruct 4D CBCT volumes at low iteration counts and under extreme sparse-view conditions. Grid smoothing and motion coherence consistently improve reconstruction quality over the base model and, in some cases, state-of-the-art methods, while geometric regularization is found to be overly restrictive under the evaluated settings.
+        </p>
+      </div>
+    </section>
+
+    <!-- Model -->
+    <section>
+      <h2 class="section-title">Model Architecture</h2>
       <figure>
         <img src="Media/Model_pipeline.png"
              alt="REG-Gaussians model pipeline">
@@ -259,50 +246,45 @@ Iterative reconstruction algorithms have emerged as effective alternatives to co
       </figure>
     </section>
 
-
+    <!-- Results -->
     <section>
-  <h2>Results</h2>
-
-  <!-- Full-width result figure -->
-  <figure>
-    <img src="Media/GlobalResultsCase1.png"
-         alt="Reconstruction quality comparison">
-    <figcaption>
-      Reconstruction quality comparison across all patients. The proposed
-      regularization strategies improve structural sharpness and temporal
-      consistency compared to the base model.
-    </figcaption>
-  </figure>
-
-  <!-- Two-column results -->
-  <div class="results-columns">
-
-    <div>
-      <h3>Sparse-iteration results</h3>
+      <h2 class="section-title">Results</h2>
 
       <figure>
-        <img src="Media/bgs_lowits_evaluation.gif"
-             alt="Reconstruction quality at low iterations">
+        <img src="Media/GlobalResultsCase1.png"
+             alt="Reconstruction quality comparison">
         <figcaption>
-          Reconstruction of the best performing regularization parameters
-          at 10.000, 20.000 and 30.000 iterations.
+          Reconstruction quality comparison across all patients. The proposed
+          regularization strategies improve structural sharpness and temporal
+          consistency compared to the base model.
         </figcaption>
       </figure>
-    </div>
 
-    <div>
-      <h3>Sparse-view results</h3>
-      <p>
-        Placeholder for extreme sparse-view experiments, demonstrating
-        robustness of REG-Gaussians under limited projection availability.
-      </p>
-    </div>
+      <div class="results-columns">
 
-  </div>
-</section>
+        <div>
+          <h3>Sparse-iteration results</h3>
+          <figure>
+            <img src="Media/bgs_lowits_evaluation.gif"
+                 alt="Reconstruction quality at low iterations">
+            <figcaption>
+              Reconstruction of the best performing regularization parameters
+              at 10.000, 20.000 and 30.000 iterations.
+            </figcaption>
+          </figure>
+        </div>
 
+        <div>
+          <h3>Sparse-view results</h3>
+          <p>
+            Placeholder for extreme sparse-view experiments, demonstrating
+            robustness of REG-Gaussians under limited projection availability.
+          </p>
+        </div>
 
-    
+      </div>
+    </section>
+
     <footer>
       © <span id="year"></span> REG-Gaussians
     </footer>
