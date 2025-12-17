@@ -31,14 +31,8 @@
 
     h1{
       font-size:36px;
-      margin-bottom:8px;
+      margin-bottom:16px;
       font-weight:600;
-    }
-
-    .subtitle{
-      color:var(--muted);
-      font-size:17px;
-      max-width:70ch;
     }
 
     hr{
@@ -53,22 +47,12 @@
 
     h2{
       font-size:22px;
-      margin-bottom:8px;
+      margin-bottom:12px;
       font-weight:600;
     }
 
-    p{
-      margin:0 0 12px;
-      max-width:75ch;
-    }
-
-    ul{
-      margin:8px 0 0 20px;
-      max-width:75ch;
-    }
-
     figure{
-      margin:18px 0;
+      margin:24px 0;
     }
 
     figure img{
@@ -84,46 +68,10 @@
       text-align:center;
     }
 
-    .links a{
-      margin-right:14px;
-      text-decoration:none;
-      color:#0066cc;
-    }
-
-    .links a:hover{
-      text-decoration:underline;
-    }
-
-    table{
-      border-collapse:collapse;
-      margin-top:12px;
-      font-size:15px;
-    }
-
-    th, td{
-      border:1px solid var(--border);
-      padding:6px 10px;
-      text-align:center;
-    }
-
-    th{
-      font-weight:600;
-      background:#f6f6f6;
-    }
-
     footer{
       margin-top:60px;
       font-size:14px;
       color:var(--muted);
-    }
-
-    .code{
-      font-family:var(--mono);
-      font-size:14px;
-      background:#f6f6f6;
-      border:1px solid var(--border);
-      padding:12px;
-      overflow-x:auto;
     }
   </style>
 </head>
@@ -133,113 +81,38 @@
 
     <!-- Title -->
     <h1>REG-Gaussians</h1>
-    <p class="subtitle">
-      Regularized Gaussian representations for sparse-view and dynamic CT reconstruction.
-    </p>
 
-    <div class="links">
-      <a href="#">Paper (PDF)</a>
-      <a href="#">Code</a>
-      <a href="#">Data</a>
-      <a href="#">Video</a>
-    </div>
+    <!-- Top GIF -->
+    <figure>
+      <img src="Media/Base models + regularization GIF.gif"
+           alt="Base models and regularization GIF">
+    </figure>
 
     <hr>
 
     <!-- Abstract -->
     <section>
       <h2>Abstract</h2>
-      <p>
-        REG-Gaussians explores the use of explicit regularization strategies in Gaussian
-        splatting frameworks for sparse-view and dynamic CT reconstruction.
-        By enforcing geometric consistency and temporal coherence, the proposed approach
-        improves convergence stability and reconstruction quality compared to unregularized baselines.
-      </p>
     </section>
 
     <!-- Method -->
     <section>
       <h2>Method</h2>
-      <p>
-        The method initializes a set of three-dimensional Gaussian primitives from an
-        FDK reconstruction of sparsely sampled CBCT projections. These primitives are
-        optimized through differentiable projection rendering using a compound loss
-        function consisting of a photometric term and several regularization terms.
-      </p>
-
-      <figure>
-        <img src="images/pipeline.png" alt="REG-Gaussians pipeline">
-        <figcaption>
-          Figure 1: Overview of the REG-Gaussians pipeline.
-        </figcaption>
-      </figure>
-
-      <ul>
-        <li>FDK-based initialization of Gaussian primitives</li>
-        <li>Differentiable forward projection</li>
-        <li>Spatiotemporal deformation modeling</li>
-        <li>Geometric and motion-based regularization</li>
-      </ul>
     </section>
 
     <!-- Results -->
     <section>
       <h2>Results</h2>
-      <p>
-        The proposed regularization strategies were evaluated on the DIR-Lung 4DCT dataset
-        under severe sparse-view conditions. Quantitative results demonstrate consistent
-        improvements in PSNR and SSIM.
-      </p>
-
-      <figure>
-        <img src="images/results_patient3.png" alt="Reconstruction comparison">
-        <figcaption>
-          Figure 2: Reconstruction quality comparison for patient 3.
-        </figcaption>
-      </figure>
-
-      <table>
-        <tr>
-          <th>Method</th>
-          <th>PSNR</th>
-          <th>SSIM</th>
-        </tr>
-        <tr>
-          <td>Base</td>
-          <td>00.00</td>
-          <td>0.000</td>
-        </tr>
-        <tr>
-          <td>Base + GS</td>
-          <td>00.00</td>
-          <td>0.000</td>
-        </tr>
-        <tr>
-          <td>Base + MC</td>
-          <td>00.00</td>
-          <td>0.000</td>
-        </tr>
-      </table>
     </section>
 
     <!-- Resources -->
     <section>
       <h2>Resources</h2>
-      <ul>
-        <li>Paper: link to PDF</li>
-        <li>Code: GitHub repository</li>
-        <li>Pretrained models</li>
-        <li>Evaluation scripts</li>
-      </ul>
     </section>
 
     <!-- Team -->
     <section>
       <h2>Team</h2>
-      <p>
-        Joris Mentink (TU/e, HKU) <br>
-        Supervisors and collaborators
-      </p>
     </section>
 
     <footer>
