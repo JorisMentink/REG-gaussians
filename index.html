@@ -168,7 +168,69 @@
   background:#0066cc;
   color:#fff;
 }
-    
+.header{
+  text-align:center;
+  margin-bottom:32px;
+}
+
+.title{
+  font-size:36px;
+  font-weight:400;
+  line-height:1.25;
+  margin-bottom:12px;
+}
+
+.title .highlight{
+  color:#0066cc;   /* IEEE blue */
+  font-weight:700;
+}
+
+.authors{
+  font-size:16px;
+  margin-top:6px;
+}
+
+.authors a{
+  color:inherit;
+  text-decoration:none;
+  font-weight:500;
+}
+
+.authors a:hover{
+  text-decoration:underline;
+}
+
+.affiliations{
+  margin-top:6px;
+  font-size:14px;
+  color:#555;
+}
+
+.affiliations div{
+  margin-top:2px;
+}
+
+.buttons{
+  margin-top:18px;
+}
+
+.buttons a{
+  display:inline-block;
+  margin:0 10px;
+  padding:9px 22px;
+  border-radius:999px;
+  border:1px solid #0066cc;
+  color:#0066cc;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:500;
+  transition:all 0.15s ease;
+}
+
+.buttons a:hover{
+  background:#0066cc;
+  color:#fff;
+}
       
   </style>
 </head>
@@ -177,6 +239,7 @@
   <main>
 
    <!-- Header -->
+<!-- Header -->
 <div class="header">
 
   <div class="title">
@@ -184,33 +247,20 @@
     sparse-view dynamic CBCT reconstruction
   </div>
 
+  <!-- Authors -->
   <div class="authors">
-    <div>
-      <a href="https://JorisMentink.github.io" target="_blank">
-        J. Mentink
-      </a>
-      (Eindhoven University of Technology, TU/e)
-    </div>
-
-    <div>
-      <a href="https://yulequan.github.io/" target="_blank">
-        L. Yu
-      </a>
-      (Assistant Professor, The University of Hong Kong, HKU)
-    </div>
-
-    <div>
-      <a href="https://wangkailing151.com/" target="_blank">
-        K. Wang
-      </a>
-      (PhD Candidate, The University of Hong Kong, HKU)
-    </div>
+    <a href="https://your-website-here" target="_blank">J. Mentink</a><sup>1,2</sup>,
+    <a href="https://lequanyu-hku-website" target="_blank">L. Yu</a><sup>2</sup>,
+    <a href="https://kailing-wang-website" target="_blank">K. Wang</a><sup>2</sup>
   </div>
 
-  <div class="buttons">
-    <a href="YOUR_PAPER_LINK_HERE" target="_blank">Paper</a>
-    <a href="YOUR_GITHUB_LINK_HERE" target="_blank">GitHub</a>
+  <!-- Affiliations -->
+  <div class="affiliations">
+    <div><sup>1</sup> Eindhoven University of Technology (TU/e)</div>
+    <div><sup>2</sup> The University of Hong Kong (HKU)</div>
   </div>
+
+
 
 </div>
 
@@ -220,6 +270,12 @@
        alt="Base models and regularization comparison GIF">
 </figure>
 
+<!-- Buttons -->
+<div class="buttons">
+  <a href="YOUR_PAPER_LINK_HERE" target="_blank">Paper</a>
+  <a href="YOUR_GITHUB_LINK_HERE" target="_blank">GitHub</a>
+</div>
+    
     <!-- Simulation -->
     <section>
       <h2>Abstract</h2>
