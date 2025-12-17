@@ -72,7 +72,47 @@
       margin-top:60px;
       font-size:14px;
       color:var(--muted);
-    }
+      }
+  .title{
+    font-size:36px;
+    font-weight:400;
+    line-height:1.25;
+    margin-bottom:10px;
+  }
+  .title .highlight{
+    color:#0066cc;      /* IEEE blue */
+    font-weight:700;
+  }
+  .authors{
+    margin-top:8px;
+    font-size:16px;
+    color:#222;
+  }
+  
+  .authors div{
+    margin-bottom:4px;
+  }
+  
+  .buttons{
+    margin-top:16px;
+  }
+  
+  .buttons a{
+    display:inline-block;
+    margin-right:12px;
+    padding:8px 16px;
+    border:1px solid #0066cc;
+    color:#0066cc;
+    text-decoration:none;
+    font-size:15px;
+    border-radius:4px;
+  }
+  
+  .buttons a:hover{
+    background:#0066cc;
+    color:#fff;
+  }
+      
   </style>
 </head>
 
@@ -80,16 +120,37 @@
   <main>
 
     <!-- Title -->
-    <h1>REG-Gaussians</h1>
+<div class="title">
+  <span class="highlight">REG-Gaussians</span>: 4D-Gaussian splatting for<br>
+  sparse-view dynamic CBCT reconstruction
+</div>
 
-    <!-- Top GIF -->
-    <figure>
-      <img src="Media/Base models + regularization GIF.gif"
-           alt="Base models and regularization GIF">
-    </figure>
+<!-- Authors -->
+<div class="authors">
+  <div>J. Mentink (Eindhoven University of Technology, TU/e)</div>
+  <div>L. Yu (Assistant Professor, The University of Hong Kong, HKU)</div>
+  <div>K. Wang (PhD Candidate, The University of Hong Kong, HKU)</div>
+</div>
 
+<!-- Buttons -->
+<div class="buttons">
+  <a href="YOUR_PAPER_LINK_HERE" target="_blank">Paper</a>
+  <a href="YOUR_GITHUB_LINK_HERE" target="_blank">GitHub</a>
+</div>
+
+<!-- GIF -->
+<figure>
+  <img src="Media/Base models + regularization GIF.gif"
+       alt="Base models and regularization comparison GIF">
+</figure>
     <hr>
 
+    <!-- Simulation -->
+    <section>
+      <h2>Abstract</h2>
+    </section>
+
+    
     <!-- Abstract -->
     <section>
       <h2>Abstract</h2>
