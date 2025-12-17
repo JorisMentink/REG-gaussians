@@ -11,7 +11,7 @@
       --muted:#555;
       --border:#ddd;
       --maxw:900px;
-      --blue:#0066cc; /* IEEE blue */
+      --blue:#0066cc;
       --sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     }
 
@@ -110,6 +110,13 @@
       border:1px solid var(--border);
     }
 
+    figcaption{
+      margin-top:6px;
+      font-size:14px;
+      color:var(--muted);
+      text-align:center;
+    }
+
     hr{
       border:none;
       border-top:1px solid var(--border);
@@ -117,13 +124,18 @@
     }
 
     section{
-      margin-bottom:36px;
+      margin-bottom:48px;
     }
 
     h2{
       font-size:22px;
       margin-bottom:12px;
       font-weight:600;
+    }
+
+    p{
+      max-width:75ch;
+      margin:0 0 12px;
     }
 
     footer{
@@ -171,27 +183,30 @@
 
     <hr>
 
-    <!-- Sections -->
+    <!-- Research question & pipeline -->
+    <section>
+      <h2>Model Architecture</h2>
+      <figure>
+        <img src="Media/Model_pipeline.png"
+             alt="REG-Gaussians model pipeline">
+        <figcaption>
+          Overview of the REG-Gaussians pipeline. Sparse-view CBCT projections are first
+          reconstructed using FDK to initialize Gaussian primitives, after which
+          spatiotemporal optimization is performed using differentiable projection
+          rendering and regularization.
+        </figcaption>
+      </figure>
+
+      <p>
+        We present the REG-Gaussians framework. The standard 4DGS approach from R2 gaussian is attached to spatiotemporal encoder HexPlane.
+      </p>
+    </section>
+
+    <!-- Other sections -->
     <section>
       <h2>Abstract</h2>
     </section>
-
-    <section>
-      <h2>Method</h2>
-    </section>
-
-    <section>
-      <h2>Results</h2>
-    </section>
-
-    <section>
-      <h2>Resources</h2>
-    </section>
-
-    <section>
-      <h2>Team</h2>
-    </section>
-
+    
     <footer>
       © <span id="year"></span> REG-Gaussians
     </footer>
