@@ -1,337 +1,252 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>REG-Gaussians | Research</title>
-  <meta name="description" content="REG-Gaussians research project page: overview, methods, results, and resources." />
+  <meta charset="utf-8">
+  <title>REG-Gaussians</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
     :root{
-      --bg:#0b0f17;
-      --panel:#101827;
-      --text:#e8eefc;
-      --muted:#b8c2d9;
-      --accent:#7aa2ff;
-      --border:rgba(255,255,255,0.08);
-      --shadow: 0 16px 40px rgba(0,0,0,0.35);
-      --radius: 16px;
-      --maxw: 1040px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --text:#111;
+      --muted:#555;
+      --border:#ddd;
+      --maxw:900px;
+      --sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
+
     body{
       margin:0;
       font-family:var(--sans);
       color:var(--text);
-      background:
-        radial-gradient(900px 500px at 15% 10%, rgba(122,162,255,0.22), transparent 55%),
-        radial-gradient(800px 500px at 85% 20%, rgba(104,226,255,0.14), transparent 55%),
-        radial-gradient(900px 700px at 50% 90%, rgba(255,122,233,0.10), transparent 60%),
-        var(--bg);
-      line-height:1.55;
+      background:#fff;
+      line-height:1.6;
     }
-    a{color:inherit}
-    .wrap{max-width:var(--maxw); margin:0 auto; padding:28px 18px 80px}
-    header{
-      position:sticky; top:0; z-index:10;
-      backdrop-filter: blur(10px);
-      background: rgba(11,15,23,0.7);
-      border-bottom:1px solid var(--border);
+
+    main{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:48px 20px 80px;
     }
-    .nav{
-      max-width:var(--maxw); margin:0 auto; padding:14px 18px;
-      display:flex; align-items:center; justify-content:space-between; gap:14px;
-    }
-    .brand{display:flex; align-items:center; gap:10px; text-decoration:none}
-    .logo{
-      width:34px; height:34px; border-radius:10px;
-      background: linear-gradient(135deg, rgba(122,162,255,0.95), rgba(255,122,233,0.75));
-      box-shadow: 0 10px 30px rgba(122,162,255,0.16);
-    }
-    .brand b{letter-spacing:0.2px}
-    .links{display:flex; gap:14px; flex-wrap:wrap}
-    .links a{
-      text-decoration:none;
-      color:var(--muted);
-      padding:8px 10px;
-      border-radius:10px;
-      border:1px solid transparent;
-    }
-    .links a:hover{color:var(--text); border-color:var(--border); background:rgba(255,255,255,0.03)}
-    .hero{
-      margin-top:22px;
-      display:grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap:18px;
-      align-items:stretch;
-    }
-    @media (max-width: 880px){
-      .hero{grid-template-columns:1fr}
-    }
-    .card{
-      background:rgba(16,24,39,0.7);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-    }
-    .card .pad{padding:22px}
+
     h1{
-      margin:0 0 10px;
-      font-size: clamp(28px, 4.2vw, 44px);
-      letter-spacing:-0.4px;
-      line-height:1.15;
+      font-size:36px;
+      margin-bottom:8px;
+      font-weight:600;
     }
-    .subtitle{color:var(--muted); max-width:62ch; margin:0 0 18px}
-    .pillrow{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 0}
-    .pill{
-      font-size:13px;
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid var(--border);
+
+    .subtitle{
       color:var(--muted);
-      background:rgba(255,255,255,0.03);
+      font-size:17px;
+      max-width:70ch;
     }
-    .cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px}
-    .btn{
-      text-decoration:none;
-      padding:10px 12px;
-      border-radius:12px;
+
+    hr{
+      border:none;
+      border-top:1px solid var(--border);
+      margin:36px 0;
+    }
+
+    section{
+      margin-bottom:36px;
+    }
+
+    h2{
+      font-size:22px;
+      margin-bottom:8px;
+      font-weight:600;
+    }
+
+    p{
+      margin:0 0 12px;
+      max-width:75ch;
+    }
+
+    ul{
+      margin:8px 0 0 20px;
+      max-width:75ch;
+    }
+
+    figure{
+      margin:18px 0;
+    }
+
+    figure img{
+      width:100%;
+      max-width:100%;
       border:1px solid var(--border);
-      background: rgba(255,255,255,0.03);
-      color:var(--text);
-      display:inline-flex; gap:10px; align-items:center;
     }
-    .btn strong{font-weight:600}
-    .btn.primary{
-      border-color: rgba(122,162,255,0.35);
-      background: linear-gradient(135deg, rgba(122,162,255,0.22), rgba(255,255,255,0.04));
-    }
-    .btn:hover{transform: translateY(-1px)}
-    .kbd{
-      font-family:var(--mono);
-      font-size:12px;
-      padding:2px 8px;
-      border-radius:999px;
-      border:1px solid var(--border);
+
+    figcaption{
+      font-size:14px;
       color:var(--muted);
-    }
-    .aside h3{margin:0 0 10px; font-size:16px}
-    .kv{display:grid; grid-template-columns: 120px 1fr; gap:10px; align-items:start}
-    .kv div{padding:8px 0; border-top:1px solid var(--border)}
-    .kv div:nth-child(-n+2){border-top:0}
-    .k{color:var(--muted); font-size:13px}
-    .v{font-size:14px}
-    main{margin-top:18px; display:grid; grid-template-columns:1fr; gap:18px}
-    section{scroll-margin-top:84px}
-    h2{margin:0 0 10px; font-size:20px}
-    p{margin:0 0 10px}
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:18px;
-    }
-    @media (max-width: 880px){ .grid{grid-template-columns:1fr} }
-    .list{
-      margin:10px 0 0; padding-left:18px; color:var(--muted)
-    }
-    .code{
-      font-family:var(--mono);
-      font-size:13px;
-      color:#d7e3ff;
-      background: rgba(0,0,0,0.25);
-      border:1px solid var(--border);
-      border-radius:14px;
-      padding:14px;
-      overflow:auto;
-      white-space:pre;
-    }
-    .tag{
-      display:inline-block;
-      padding:3px 8px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      color:var(--muted);
-      font-size:12px;
-      margin-right:6px;
       margin-top:6px;
-    }
-    footer{
-      margin-top:26px;
-      color:var(--muted);
-      font-size:13px;
       text-align:center;
     }
-    .small{font-size:13px; color:var(--muted)}
+
+    .links a{
+      margin-right:14px;
+      text-decoration:none;
+      color:#0066cc;
+    }
+
+    .links a:hover{
+      text-decoration:underline;
+    }
+
+    table{
+      border-collapse:collapse;
+      margin-top:12px;
+      font-size:15px;
+    }
+
+    th, td{
+      border:1px solid var(--border);
+      padding:6px 10px;
+      text-align:center;
+    }
+
+    th{
+      font-weight:600;
+      background:#f6f6f6;
+    }
+
+    footer{
+      margin-top:60px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .code{
+      font-family:var(--mono);
+      font-size:14px;
+      background:#f6f6f6;
+      border:1px solid var(--border);
+      padding:12px;
+      overflow-x:auto;
+    }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="nav">
-      <a class="brand" href="#top" aria-label="REG-Gaussians home">
-        <span class="logo" aria-hidden="true"></span>
-        <b>REG-Gaussians</b>
-      </a>
+  <main>
 
-      <nav class="links" aria-label="Primary">
-        <a href="#overview">Overview</a>
-        <a href="#method">Method</a>
-        <a href="#results">Results</a>
-        <a href="#resources">Resources</a>
-        <a href="#team">Team</a>
-      </nav>
-    </div>
-  </header>
+    <!-- Title -->
+    <h1>REG-Gaussians</h1>
+    <p class="subtitle">
+      Regularized Gaussian representations for sparse-view and dynamic CT reconstruction.
+    </p>
 
-  <div class="wrap" id="top">
-    <div class="hero">
-      <div class="card">
-        <div class="pad">
-          <h1>REG-Gaussians</h1>
-          <p class="subtitle">
-            A research project exploring regularized Gaussian-based representations for sparse view and dynamic CT reconstruction.
-            This template is designed for a clean project page with sections you can quickly fill in.
-          </p>
-
-          <div class="cta">
-            <a class="btn primary" href="#resources"><strong>Paper</strong> <span class="kbd">PDF</span></a>
-            <a class="btn" href="#resources"><strong>Code</strong> <span class="kbd">GitHub</span></a>
-            <a class="btn" href="#results"><strong>Demo</strong> <span class="kbd">Video</span></a>
-          </div>
-
-          <div class="pillrow" aria-label="Highlights">
-            <span class="pill">4D Gaussian Splatting</span>
-            <span class="pill">Sparse view CBCT</span>
-            <span class="pill">Regularization</span>
-            <span class="pill">Reconstruction metrics</span>
-          </div>
-        </div>
-      </div>
-
-      <aside class="card aside">
-        <div class="pad">
-          <h3>Project info</h3>
-          <div class="kv">
-            <div class="k">Status</div><div class="v">Active</div>
-            <div class="k">Focus</div><div class="v">Regularized Gaussian representations</div>
-            <div class="k">Data</div><div class="v">DIR Lung 4DCT / CBCT projections</div>
-            <div class="k">Framework</div><div class="v">PyTorch, CUDA</div>
-          </div>
-          <p class="small" style="margin-top:12px">
-            Replace the entries above with your exact setup and links.
-          </p>
-        </div>
-      </aside>
+    <div class="links">
+      <a href="#">Paper (PDF)</a>
+      <a href="#">Code</a>
+      <a href="#">Data</a>
+      <a href="#">Video</a>
     </div>
 
-    <main>
-      <section class="card" id="overview">
-        <div class="pad">
-          <h2>Overview</h2>
-          <p>
-            REG-Gaussians investigates how explicit regularization can improve convergence and reconstruction quality when
-            optimizing Gaussian primitives from limited projection data.
-          </p>
-          <ul class="list">
-            <li>Problem: sparse view and motion cause artifacts and instability.</li>
-            <li>Idea: add regularizers to preserve geometry and temporal coherence.</li>
-            <li>Outcome: improved stability and sharper structure in reconstructions.</li>
-          </ul>
-        </div>
-      </section>
+    <hr>
 
-      <div class="grid">
-        <section class="card" id="method">
-          <div class="pad">
-            <h2>Method</h2>
-            <p>
-              Provide a short high level summary of your pipeline. Keep it readable, then link to the paper for details.
-            </p>
-            <p class="small">
-              Example components you can list:
-            </p>
-            <div>
-              <span class="tag">FDK init</span>
-              <span class="tag">Gaussian primitives</span>
-              <span class="tag">Differentiable rendering</span>
-              <span class="tag">Spatiotemporal encoder</span>
-              <span class="tag">Regularizers</span>
-            </div>
+    <!-- Abstract -->
+    <section>
+      <h2>Abstract</h2>
+      <p>
+        REG-Gaussians explores the use of explicit regularization strategies in Gaussian
+        splatting frameworks for sparse-view and dynamic CT reconstruction.
+        By enforcing geometric consistency and temporal coherence, the proposed approach
+        improves convergence stability and reconstruction quality compared to unregularized baselines.
+      </p>
+    </section>
 
-            <div class="code" aria-label="Pseudo pipeline">
-Input: phase-binned projections
-1) FDK reconstruction for initialization
-2) Initialize 3D Gaussians from point cloud
-3) Optimize density, position, covariance and motion
-4) Render synthetic projections
-5) Minimize photometric + regularization losses
-Output: 4D volume / Gaussian scene</div>
-          </div>
-        </section>
+    <!-- Method -->
+    <section>
+      <h2>Method</h2>
+      <p>
+        The method initializes a set of three-dimensional Gaussian primitives from an
+        FDK reconstruction of sparsely sampled CBCT projections. These primitives are
+        optimized through differentiable projection rendering using a compound loss
+        function consisting of a photometric term and several regularization terms.
+      </p>
 
-        <section class="card" id="results">
-          <div class="pad">
-            <h2>Results</h2>
-            <p>
-              Add one representative table or figure here. For now, placeholders are included.
-            </p>
-            <ul class="list">
-              <li>Metrics: PSNR, SSIM, optionally DSSIM or MAE.</li>
-              <li>Baselines: FDK, iterative methods, prior Gaussian approaches.</li>
-              <li>Ablations: base vs base plus each regularizer and combinations.</li>
-            </ul>
+      <figure>
+        <img src="images/pipeline.png" alt="REG-Gaussians pipeline">
+        <figcaption>
+          Figure 1: Overview of the REG-Gaussians pipeline.
+        </figcaption>
+      </figure>
 
-            <p class="small">Placeholder results table:</p>
-            <div class="code" aria-label="Results table placeholder">
-Method                 PSNR    SSIM
-Base                  00.00   0.000
-Base + GS             00.00   0.000
-Base + MC             00.00   0.000
-Base + GL             00.00   0.000</div>
-          </div>
-        </section>
-      </div>
+      <ul>
+        <li>FDK-based initialization of Gaussian primitives</li>
+        <li>Differentiable forward projection</li>
+        <li>Spatiotemporal deformation modeling</li>
+        <li>Geometric and motion-based regularization</li>
+      </ul>
+    </section>
 
-      <section class="card" id="resources">
-        <div class="pad">
-          <h2>Resources</h2>
-          <p>
-            Add links to your paper, code, dataset details, and pretrained checkpoints.
-          </p>
-          <ul class="list">
-            <li><b>Paper:</b> link to PDF</li>
-            <li><b>Code:</b> link to repository</li>
-            <li><b>Data:</b> link to dataset and preprocessing scripts</li>
-            <li><b>Models:</b> link to checkpoints and config files</li>
-          </ul>
-        </div>
-      </section>
+    <!-- Results -->
+    <section>
+      <h2>Results</h2>
+      <p>
+        The proposed regularization strategies were evaluated on the DIR-Lung 4DCT dataset
+        under severe sparse-view conditions. Quantitative results demonstrate consistent
+        improvements in PSNR and SSIM.
+      </p>
 
-      <section class="card" id="team">
-        <div class="pad">
-          <h2>Team</h2>
-          <p>
-            List authors, affiliations, and contact.
-          </p>
-          <ul class="list">
-            <li>Your Name, TU/e and HKU</li>
-            <li>Collaborators</li>
-            <li>Supervisors</li>
-          </ul>
-          <p class="small">
-            Contact: <a href="mailto:your.email@example.com">your.email@example.com</a>
-          </p>
-        </div>
-      </section>
-    </main>
+      <figure>
+        <img src="images/results_patient3.png" alt="Reconstruction comparison">
+        <figcaption>
+          Figure 2: Reconstruction quality comparison for patient 3.
+        </figcaption>
+      </figure>
+
+      <table>
+        <tr>
+          <th>Method</th>
+          <th>PSNR</th>
+          <th>SSIM</th>
+        </tr>
+        <tr>
+          <td>Base</td>
+          <td>00.00</td>
+          <td>0.000</td>
+        </tr>
+        <tr>
+          <td>Base + GS</td>
+          <td>00.00</td>
+          <td>0.000</td>
+        </tr>
+        <tr>
+          <td>Base + MC</td>
+          <td>00.00</td>
+          <td>0.000</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Resources -->
+    <section>
+      <h2>Resources</h2>
+      <ul>
+        <li>Paper: link to PDF</li>
+        <li>Code: GitHub repository</li>
+        <li>Pretrained models</li>
+        <li>Evaluation scripts</li>
+      </ul>
+    </section>
+
+    <!-- Team -->
+    <section>
+      <h2>Team</h2>
+      <p>
+        Joris Mentink (TU/e, HKU) <br>
+        Supervisors and collaborators
+      </p>
+    </section>
 
     <footer>
-      © <span id="year"></span> REG-Gaussians. Built with a single HTML file.
+      © <span id="year"></span> REG-Gaussians
     </footer>
-  </div>
+
+  </main>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
