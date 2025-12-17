@@ -173,7 +173,30 @@
       grid-template-columns: 1fr;
     }
   }
-      
+  .results-columns{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:32px;
+  margin-top:24px;
+}
+
+.results-columns h3{
+  margin-top:0;
+  font-size:18px;
+  font-weight:600;
+}
+
+.results-columns p{
+  font-size:15px;
+}
+
+/* Stack columns on small screens */
+@media (max-width: 900px){
+  .results-columns{
+    grid-template-columns: 1fr;
+  }
+}
+ 
   </style>
 </head>
 
@@ -235,38 +258,42 @@
 
 
     <section>
-    <h2>Results</h2>
-  
-    <div class="results-grid">
-  
-      <div class="result-card">
-        <h3>General results</h3>
-        <p>
-          Placeholder for overall reconstruction quality across all patients
-          and regularization settings. This section can summarize average PSNR,
-          SSIM, and qualitative observations.
-        </p>
-      </div>
-  
-      <div class="result-card">
-        <h3>Low-iteration results</h3>
-        <p>
-          Placeholder for performance at early training stages, highlighting
-          convergence behavior and reconstruction quality at reduced iteration
-          counts.
-        </p>
-      </div>
-  
-      <div class="result-card">
-        <h3>Super sparse-view reconstruction</h3>
-        <p>
-          Placeholder for extreme sparse-view scenarios, demonstrating robustness
-          of the proposed method under severely limited projection data.
-        </p>
-      </div>
-  
+  <h2>Results</h2>
+
+  <!-- Full-width result figure -->
+  <figure>
+    <img src="Placeholder"
+         alt="Reconstruction quality comparison">
+    <figcaption>
+      Reconstruction quality comparison across all patients. The proposed
+      regularization strategies improve structural sharpness and temporal
+      consistency compared to the base model.
+    </figcaption>
+  </figure>
+
+  <!-- Two-column results -->
+  <div class="results-columns">
+
+    <div>
+      <h3>Sparse-iteration results</h3>
+      <p>
+        Placeholder for reconstruction quality at reduced training iterations.
+        This section can discuss early convergence behavior and performance
+        relative to iterative baselines.
+      </p>
     </div>
+
+    <div>
+      <h3>Sparse-view results</h3>
+      <p>
+        Placeholder for extreme sparse-view experiments, demonstrating
+        robustness of REG-Gaussians under limited projection availability.
+      </p>
+    </div>
+
+  </div>
 </section>
+
 
 
     
