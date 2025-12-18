@@ -1,4 +1,4 @@
-## License
+## LICENSE
 
 This project is licensed under the MIT License.  
 Third party components are distributed under their respective licenses.
