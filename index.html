@@ -209,7 +209,7 @@
 
     <!-- GIF -->
     <figure>
-      <img src="Media/DynamicResults.gif"
+      <img src="Media/BGS_AllCases.gif"
            alt="Base models and regularization comparison GIF">
     </figure>
 
@@ -238,10 +238,7 @@
         <img src="Media/Model_pipeline.png"
              alt="REG-Gaussians model pipeline">
         <figcaption>
-          Overview of the REG-Gaussians pipeline. Sparse-view CBCT projections are first
-          reconstructed using FDK to initialize Gaussian primitives, after which
-          spatiotemporal optimization is performed using differentiable projection
-          rendering and regularization.
+          Overview of the REG-Gaussians pipeline. Model initialization is performed by reconstructing a theoretical point cloud using the FDK algorithm on the full dynamic sparse CBCT dataset, with one Gaussian primitive assigned to each point. During optimization, Gaussians are iteratively rasterized into synthetic CBCT projections and compared to ground truth projections using L2 and DSSIM losses. Dynamic behavior is modeled by encoding and decoding spatiotemporal features through a HexPlane representation, with lightweight decoder heads predicting the deformation fields of all Gaussians.
         </figcaption>
       </figure>
     </section>
@@ -254,7 +251,7 @@
         <img src="Media/Case1_FullReconQuality_eval.png"
              alt="Reconstruction quality comparison">
         <figcaption>
-          Reconstruction quality comparison across all regularization strategies and respective combinations. Full model denotes combination of all regularization strategies.
+          Reconstruction quality comparison across all regularization strategies and respective combinations. Full model denotes combination of all regularization strategies. HexPlane grid smoothing term [Base + GS] shows highest average PSNR and SSIM scores.
         </figcaption>
       </figure>
 
@@ -266,8 +263,8 @@
             <img src="Media/bgs_lowits_evaluation.gif"
                  alt="Reconstruction quality at low iterations">
             <figcaption>
-              Reconstruction of the best performing regularization parameters
-              at 10.000, 20.000 and 30.000 iterations.
+              Reconstruction of the best performing regularization strategy
+              at 10.000, 20.000 and 30.000 iterations. General anatomy is consistent with ground truth. Every amount of iterations shows superior reconstruction over conventional FDK algorithm.
             </figcaption>
           </figure>
         </div>
@@ -278,8 +275,7 @@
             <img src="Media/SuperSparseRecon.gif"
                  alt="Super sparse view reconstructions">
             <figcaption>
-              Reconstruction of the best performing regularization parameters
-              at super sparse view reconstructions. 50, 100, 200 and 300 projections respectively.
+              Reconstruction of the best performing regularization strategy at 50, 100, 200 and 300 CBCT projections. General anatomy is consistent over all super sparse-view reconstructions. Notably high reconstruction quality even at 200 projections.
             </figcaption>
           </figure>
         </div>
