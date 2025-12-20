@@ -2,11 +2,12 @@
 
 <div align="center">
 
-[Paper] | [Project Page] | [Models] | [Data]
-
 <h2>REG-Gaussians: 4D-Gaussian Splatting for Sparse-View Dynamic CBCT Reconstruction</h2>
 
 *Regularized 4D Gaussian splatting for sparse-view dynamic cone-beam CT reconstruction.*
+
+[Project page]([https://yourprojectpage.com](https://jorismentink.github.io/REG-gaussians/)
+
 
 </div>
 
