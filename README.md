@@ -23,8 +23,6 @@ The work builds upon and adapts existing 3D and 4D Gaussian splatting pipelines,
 - Motion coherence regularization
 - Geometric regularization
 
-If you find this repository useful, please consider giving it a star ⭐.
-
 ---
 
 ## 1. Installation
