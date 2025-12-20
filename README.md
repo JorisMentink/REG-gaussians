@@ -28,7 +28,7 @@ The work builds upon and adapts existing 3D and 4D Gaussian splatting pipelines,
 
 ## 1. Installation
 
-We recommend using **Conda** to set up the environment. The code has been tested on **Ubuntu 20.04** and **Windows (WSL2)** with NVIDIA GPUs.
+We recommend using **Conda** to set up the environment. The code has been tested on **Ubuntu 24.04** using the NVIDIA GeForce RTX 4080 Super GPU.
 
 ### 1.1 Clone repository
 
@@ -50,8 +50,7 @@ REG-Gaussians is evaluated on **4D thoracic CT data** with simulated sparse-view
 - DIR-Lung 4DCT dataset
 - Patients 1 to 5
 
-The dataset can be downloaded from the official source:
-https://med.emory.edu/departments/radiation-oncology/research-laboratories/deformable-image-registration/downloads-and-reference-data/4dct.html
+The dataset can be downloaded from the official source [here](https://med.emory.edu/departments/radiation-oncology/research-laboratories/deformable-image-registration/downloads-and-reference-data/4dct)
 
 After downloading, the raw 4DCT data must be pre-processed and converted into a NeRF-style directory structure before training.
 
@@ -59,9 +58,9 @@ After downloading, the raw 4DCT data must be pre-processed and converted into a 
 
 ## 3. Initialization and Training
 
-Initialization and training follow the same general pipeline as **R²-Gaussian**.  
+Initialization and training follow the same general pipeline as [**R²-Gaussian**](https://github.com/Ruyi-Zha/r2_gaussian).  
 Please refer to the original repository for additional background details:
-https://github.com/Ruyi-Zha/r2_gaussian
+
 
 ### 3.1 Dataset compilation
 
@@ -122,7 +121,7 @@ Where the iteration number denotes at what iteration checkpoint you want to eval
 This repository builds upon and adapts code from several open-source projects, including:
 
 - [Gaussian Splatting](https://github.com/graphdeco-inria/gaussian-splatting)  
-- [R2_Gaussian](https://github.com/Ruyi-Zha/r2_gaussian)  
+- [R²-Gaussian](https://github.com/Ruyi-Zha/r2_gaussian)  
 - [HexPlane](https://github.com/Caoang327/HexPlane)
 - [TIGRE Toolbox](https://github.com/CERN/TIGRE/tree/master)  
 
@@ -133,7 +132,7 @@ We thank the respective authors for making their work publicly available.
 ### License
 
 This project falls under the third party licenses of the used open-source code:
-[r2_gaussian license](https://github.com/Ruyi-Zha/r2_gaussian/blob/main/LICENSE.md)
+[R²-Gaussian license](https://github.com/Ruyi-Zha/r2_gaussian/blob/main/LICENSE.md)
 [HexPlane license](https://github.com/Caoang327/HexPlane/blob/main/LICENSE)
 
 
