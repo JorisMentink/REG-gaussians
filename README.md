@@ -106,4 +106,36 @@ python train.py
 
 The number of training iterations and output directory can be adjusted depending on the desired reconstruction quality and available computational resources.
 
+### 3.3 Evaluation
+
+Model evaluation can be done via:
+
+```sh
+python test.py
+--model_path "path/to/model/output/folder"
+--iteration  30000
+```
+Where the iteration number denotes at what iteration checkpoint you want to evaluate the model. NOTE: you can only evaluate models at lower iterations if checkpoints exist.
+
+### Acknowledgements
+
+This repository builds upon and adapts code from several open-source projects, including:
+
+- [Gaussian Splatting](https://github.com/graphdeco-inria/gaussian-splatting)  
+- [R2_Gaussian](https://github.com/Ruyi-Zha/r2_gaussian)  
+- [HexPlane](https://github.com/Caoang327/HexPlane)
+- [TIGRE Toolbox](https://github.com/CERN/TIGRE/tree/master)  
+
+We thank the respective authors for making their work publicly available.
+
+---
+
+### License
+
+This project falls under the third party licenses of the used open-source code:
+[r2_gaussian license](https://github.com/Ruyi-Zha/r2_gaussian/blob/main/LICENSE.md)
+[HexPlane license](https://github.com/Caoang327/HexPlane/blob/main/LICENSE)
+
+
+---
 
