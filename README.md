@@ -68,7 +68,11 @@ https://github.com/Ruyi-Zha/r2_gaussian
 After pre-processing the raw data into a NeRF-format directory structure, all respiratory phase bins are compiled into a single training dataset using:
 
 ```sh
-python compile_training_dataset.py   --input_path  "path/to/parent/folder"   --output_path "path/to/output/folder"   --train_size  30   --test_size   30
+python compile_training_dataset.py
+--input_path  "path/to/parent/folder"
+--output_path "path/to/output/folder"
+--train_size  30
+--test_size   30
 ```
 
 Here, `train_size` and `test_size` denote the number of projections used for training and testing per respiratory phase, respectively.
@@ -80,7 +84,9 @@ Here, `train_size` and `test_size` denote the number of projections used for tra
 The compiled dataset is initialized by sampling Gaussians from a coarse reconstruction, typically obtained using the FDK algorithm:
 
 ```sh
-python initialize_pcd.py   --data   "path/to/compiled/dataset"   --device 0
+python initialize_pcd.py
+--data   "path/to/compiled/dataset"
+--device 0
 ```
 
 Proper initialization is important for stable convergence and reconstruction quality.
@@ -92,7 +98,10 @@ Proper initialization is important for stable convergence and reconstruction qua
 Training can be started using:
 
 ```sh
-python train.py   --source_path "path/to/compiled/dataset"   --iterations  30000   --model_path "path/to/output"
+python train.py
+--source_path "path/to/compiled/dataset"
+--iterations  30000
+--model_path "path/to/output"
 ```
 
 The number of training iterations and output directory can be adjusted depending on the desired reconstruction quality and available computational resources.
