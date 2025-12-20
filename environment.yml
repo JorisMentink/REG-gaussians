@@ -16,6 +16,7 @@ dependencies:
   - tensorboard
   - tensorboardX
   - pyyaml
+  - scipy
   - pip:
     - opencv-python
     - matplotlib
@@ -27,5 +28,8 @@ dependencies:
     - scikit-image
     - Cython==0.29.36
     - open3d==0.18.0
+    - nibabel
+    - tigre
+    - plotly
     - -e r2_gaussian/submodules/simple-knn
     - -e r2_gaussian/submodules/xray-gaussian-rasterization-voxelization
