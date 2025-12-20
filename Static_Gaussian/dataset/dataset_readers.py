@@ -8,7 +8,7 @@ import torch
 import pickle
 
 sys.path.append("./")
-from r2_gaussian.utils.graphics_utils import BasicPointCloud, fetchPly
+from Static_Gaussian.utils.graphics_utils import BasicPointCloud, fetchPly
 
 mode_id = {
     "parallel": 0,

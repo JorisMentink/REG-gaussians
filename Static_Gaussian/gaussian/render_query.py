@@ -21,9 +21,9 @@ from xray_gaussian_rasterization_voxelization import (
 )
 
 sys.path.append("./")
-from r2_gaussian.gaussian.gaussian_model import GaussianModel
-from r2_gaussian.dataset.cameras import Camera
-from r2_gaussian.arguments import PipelineParams
+from Static_Gaussian.gaussian.gaussian_model import GaussianModel
+from Static_Gaussian.dataset.cameras import Camera
+from Static_Gaussian.arguments import PipelineParams
 
 
 def query(

@@ -12,7 +12,7 @@ from skimage import measure
 import cv2
 
 sys.path.append("./")
-from r2_gaussian.utils.general_utils import t2a
+from Static_Gaussian.utils.general_utils import t2a
 
 
 def show_gaussians(

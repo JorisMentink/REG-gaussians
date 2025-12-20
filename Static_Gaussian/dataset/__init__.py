@@ -17,11 +17,11 @@ import torch
 import json
 
 sys.path.append("./")
-from r2_gaussian.gaussian import GaussianModel
-from r2_gaussian.arguments import ModelParams
-from r2_gaussian.dataset.dataset_readers import sceneLoadTypeCallbacks
-from r2_gaussian.utils.camera_utils import cameraList_from_camInfos
-from r2_gaussian.utils.general_utils import t2a
+from Static_Gaussian.gaussian import GaussianModel
+from Static_Gaussian.arguments import ModelParams
+from Static_Gaussian.dataset.dataset_readers import sceneLoadTypeCallbacks
+from Static_Gaussian.utils.camera_utils import cameraList_from_camInfos
+from Static_Gaussian.utils.general_utils import t2a
 
 
 class Scene:

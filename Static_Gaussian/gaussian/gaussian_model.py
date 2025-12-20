@@ -19,9 +19,9 @@ from plyfile import PlyData, PlyElement
 sys.path.append("./")
 
 from simple_knn._C import distCUDA2
-from r2_gaussian.utils.general_utils import t2a
-from r2_gaussian.utils.system_utils import mkdir_p
-from r2_gaussian.utils.gaussian_utils import (
+from Static_Gaussian.utils.general_utils import t2a
+from Static_Gaussian.utils.system_utils import mkdir_p
+from Static_Gaussian.utils.gaussian_utils import (
     inverse_sigmoid,
     get_expon_lr_func,
     build_rotation,

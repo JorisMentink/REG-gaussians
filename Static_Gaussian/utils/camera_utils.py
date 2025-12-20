@@ -13,7 +13,7 @@ import torch
 import numpy as np
 
 sys.path.append("./")
-from r2_gaussian.dataset.cameras import Camera
+from Static_Gaussian.dataset.cameras import Camera
 
 
 def loadCam(args, id, cam_info):

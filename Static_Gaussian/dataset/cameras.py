@@ -14,7 +14,7 @@ from torch import nn
 import numpy as np
 
 sys.path.append("./")
-from r2_gaussian.utils.graphics_utils import getWorld2View2, getProjectionMatrix
+from Static_Gaussian.utils.graphics_utils import getWorld2View2, getProjectionMatrix
 
 
 class Camera(nn.Module):

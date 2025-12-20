@@ -12,13 +12,13 @@ import copy
 import torch
 
 sys.path.append("./")
-from r2_gaussian.utils.ct_utils import get_geometry_tigre, recon_volume
-from r2_gaussian.arguments import ParamGroup, ModelParams, PipelineParams
-from r2_gaussian.utils.plot_utils import show_one_volume, show_two_volume
-from r2_gaussian.gaussian import GaussianModel, query, initialize_gaussian
-from r2_gaussian.utils.image_utils import metric_vol
-from r2_gaussian.dataset import Scene
-from r2_gaussian.utils.general_utils import t2a
+from Static_Gaussian.utils.ct_utils import get_geometry_tigre, recon_volume
+from Static_Gaussian.arguments import ParamGroup, ModelParams, PipelineParams
+from Static_Gaussian.utils.plot_utils import show_one_volume, show_two_volume
+from Static_Gaussian.gaussian import GaussianModel, query, initialize_gaussian
+from Static_Gaussian.utils.image_utils import metric_vol
+from Static_Gaussian.dataset import Scene
+from Static_Gaussian.utils.general_utils import t2a
 
 np.random.seed(0)
 

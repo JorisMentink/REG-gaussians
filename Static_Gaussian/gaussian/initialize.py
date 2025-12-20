@@ -4,10 +4,10 @@ import os.path as osp
 import numpy as np
 
 sys.path.append("./")
-from r2_gaussian.gaussian.gaussian_model import GaussianModel
-from r2_gaussian.arguments import ModelParams
-from r2_gaussian.utils.graphics_utils import fetchPly
-from r2_gaussian.utils.system_utils import searchForMaxIteration
+from Static_Gaussian.gaussian.gaussian_model import GaussianModel
+from Static_Gaussian.arguments import ModelParams
+from Static_Gaussian.utils.graphics_utils import fetchPly
+from Static_Gaussian.utils.system_utils import searchForMaxIteration
 
 
 def initialize_gaussian(gaussians: GaussianModel, args: ModelParams, loaded_iter=None):

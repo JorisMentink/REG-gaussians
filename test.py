@@ -25,16 +25,16 @@ import SimpleITK as sitk
 import nibabel as nib
 
 sys.path.append("./")
-from r2_gaussian.arguments import (
+from Static_Gaussian.arguments import (
     ModelParams,
     PipelineParams,
     get_combined_args,
     DeformationParams,
 )
-from r2_gaussian.dataset import Scene
-from r2_gaussian.gaussian import GaussianModel, render, query, initialize_gaussian
-from r2_gaussian.utils.general_utils import safe_state, t2a
-from r2_gaussian.utils.image_utils import metric_vol, metric_proj
+from Static_Gaussian.dataset import Scene
+from Static_Gaussian.gaussian import GaussianModel, render, query, initialize_gaussian
+from Static_Gaussian.utils.general_utils import safe_state, t2a
+from Static_Gaussian.utils.image_utils import metric_vol, metric_proj
 from Hexplane.deformation import deform_network
 
 

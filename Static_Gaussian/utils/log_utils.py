@@ -13,7 +13,7 @@ except ImportError:
     TENSORBOARD_FOUND = False
 
 sys.path.append("./")
-from r2_gaussian.utils.cfg_utils import args2string
+from Static_Gaussian.utils.cfg_utils import args2string
 
 
 def prepare_output_and_logger(args):

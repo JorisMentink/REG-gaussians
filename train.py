@@ -21,15 +21,15 @@ import yaml
 import shutil
 
 sys.path.append("./")
-from r2_gaussian.arguments import ModelParams, OptimizationParams, PipelineParams, DeformationParams
-from r2_gaussian.gaussian import GaussianModel, render, query, initialize_gaussian
-from r2_gaussian.utils.general_utils import safe_state
-from r2_gaussian.utils.cfg_utils import load_config
-from r2_gaussian.utils.log_utils import prepare_output_and_logger
-from r2_gaussian.dataset import Scene
-from r2_gaussian.utils.loss_utils import l1_loss, ssim, tv_3d_loss
-from r2_gaussian.utils.image_utils import metric_vol, metric_proj
-from r2_gaussian.utils.plot_utils import show_two_slice
+from Static_Gaussian.arguments import ModelParams, OptimizationParams, PipelineParams, DeformationParams
+from Static_Gaussian.gaussian import GaussianModel, render, query, initialize_gaussian
+from Static_Gaussian.utils.general_utils import safe_state
+from Static_Gaussian.utils.cfg_utils import load_config
+from Static_Gaussian.utils.log_utils import prepare_output_and_logger
+from Static_Gaussian.dataset import Scene
+from Static_Gaussian.utils.loss_utils import l1_loss, ssim, tv_3d_loss
+from Static_Gaussian.utils.image_utils import metric_vol, metric_proj
+from Static_Gaussian.utils.plot_utils import show_two_slice
 
 from Hexplane.deformation import deform_network
 from Hexplane.additive_loss_funcs import grid_smoothness_loss, geometric_regularization_loss, velocity_coherence_loss

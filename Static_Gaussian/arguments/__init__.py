@@ -15,7 +15,7 @@ import os.path as osp
 from argparse import ArgumentParser, Namespace
 
 sys.path.append("./")
-from r2_gaussian.utils.argument_utils import ParamGroup
+from Static_Gaussian.utils.argument_utils import ParamGroup
 
 
 class ModelParams(ParamGroup):

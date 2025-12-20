@@ -11,7 +11,7 @@ from tigre.utilities.im3Dnorm import im3DNORM
 import matplotlib.pyplot as plt
 
 sys.path.append("./")
-from r2_gaussian.utils.image_utils import metric_vol
+from Static_Gaussian.utils.image_utils import metric_vol
 
 
 def recon_volume(projs, angles, geo, recon_method):

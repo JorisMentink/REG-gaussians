@@ -13,7 +13,7 @@ import numpy as np
 import torch
 
 sys.path.append("./")
-from r2_gaussian.utils.loss_utils import ssim
+from Static_Gaussian.utils.loss_utils import ssim
 
 
 def mse(img1, img2, mask=None):
