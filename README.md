@@ -18,7 +18,7 @@ This repository contains the official implementation of **REG-Gaussians**, a fra
 
 REG-Gaussians extends recent radiative Gaussian splatting methods for tomographic reconstruction by introducing and evaluating multiple **regularization strategies** aimed at improving reconstruction quality and temporal consistency in dynamic CBCT settings. The framework focuses on **respiratory phase binned 4D-CBCT** and is evaluated on thoracic data.
 
-The work builds upon and adapts existing 3D and 4D Gaussian splatting pipelines, most notably **R²-Gaussian** and **HexPlane-based spatiotemporal representations**, and introduces additional regularization terms such as:
+The work builds upon and adapts existing 3D and 4D Gaussian splatting pipelines, most notably **R²-Gaussian** and **HexPlane-based spatiotemporal representations**, and evaluates the effect of additional regularization terms such as:
 - HexPlane grid smoothing
 - Motion coherence regularization
 - Geometric regularization
