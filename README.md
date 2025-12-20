@@ -41,47 +41,59 @@ conda env create --file environment.yml
 conda activate reg_gaussians
 ```
 
-#### 1.2 Install TIGRE
-
-It is necessary to download the TIGRE CT toolbox for data data generation and initialization. This can be done via their instructions HERE: https://github.com/CERN/TIGRE/blob/master/Frontispiece/python_installation.md
-
 ## 2. Dataset
 
-REG-Gaussians is evaluated on 4D thoracic CT data with simulated sparse view CBCT projections.
+REG-Gaussians is evaluated on **4D thoracic CT data** with simulated sparse-view CBCT projections.
 
-Primary dataset:
-DIR Lung 4DCT, Patients 1 to 5, downloadable HERE: https://med.emory.edu/departments/radiation-oncology/research-laboratories/deformable-image-registration/downloads-and-reference-data/4dct.html
+**Primary dataset**
+- DIR-Lung 4DCT dataset
+- Patients 1 to 5
 
-## 3. Initilization and training.
+The dataset can be downloaded from the official source:
+https://med.emory.edu/departments/radiation-oncology/research-laboratories/deformable-image-registration/downloads-and-reference-data/4dct.html
 
-Initialization and training happens via the same methods as R2_gaussian, seen HERE: https://github.com/Ruyi-Zha/r2_gaussia
+After downloading, the raw 4DCT data must be pre-processed and converted into a NeRF-style directory structure before training.
 
-After pre-processing the raw data into NeRF format file structure, compile all processed phasebins using
+---
 
-```sh
-python compile_training_dataset.py
---input_path    "path/to/parent/folder"
---output_path   "path/to/output/folder"
---train_size    30
---test_zie      30
-```
+## 3. Initialization and Training
 
-Then, initialize the compiled dataset using:
+Initialization and training follow the same general pipeline as **R²-Gaussian**.  
+Please refer to the original repository for additional background details:
+https://github.com/Ruyi-Zha/r2_gaussian
 
-```sh
-python initialize_pcd.py
---data    "path/to/compiled/dataset"
---device  0
-```
+### 3.1 Dataset compilation
 
-After which you can start training using:
+After pre-processing the raw data into a NeRF-format directory structure, all respiratory phase bins are compiled into a single training dataset using:
 
 ```sh
-python train.py "path/to/compiled/dataset"
---iterations 30000
---model_path "path/to/output"
-
+python compile_training_dataset.py   --input_path  "path/to/parent/folder"   --output_path "path/to/output/folder"   --train_size  30   --test_size   30
 ```
 
+Here, `train_size` and `test_size` denote the number of projections used for training and testing per respiratory phase, respectively.
+
+---
+
+### 3.2 Gaussian initialization
+
+The compiled dataset is initialized by sampling Gaussians from a coarse reconstruction, typically obtained using the FDK algorithm:
+
+```sh
+python initialize_pcd.py   --data   "path/to/compiled/dataset"   --device 0
+```
+
+Proper initialization is important for stable convergence and reconstruction quality.
+
+---
+
+### 3.3 Training
+
+Training can be started using:
+
+```sh
+python train.py   --source_path "path/to/compiled/dataset"   --iterations  30000   --model_path "path/to/output"
+```
+
+The number of training iterations and output directory can be adjusted depending on the desired reconstruction quality and available computational resources.
 
 
