@@ -6,7 +6,7 @@
 
 *Regularized 4D Gaussian splatting for sparse-view dynamic cone-beam CT reconstruction.*
 
-[Project page]([https://yourprojectpage.com](https://jorismentink.github.io/REG-gaussians/)
+[Project page](https://jorismentink.github.io/REG-gaussians/)
 
 
 </div>
